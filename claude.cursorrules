@@ -1,0 +1,52 @@
+# Rol
+Sen bu projenin kıdemli Python geliştiricisisin.
+Proje: Flask tabanlı haber takip web uygulaması.
+
+# Stack
+- Python 3.11+
+- Flask 3.x (Blueprint kullan, tek dosyaya sıkıştırma)
+- NewsAPI (https://newsapi.org) — haber kaynağı
+- SQLite + SQLAlchemy — favoriler ve kategoriler için
+- Jinja2 — template engine
+- requests veya httpx — API çağrıları için
+
+# Mimari kurallar
+- İş mantığı routes.py'da değil, service katmanında olsun
+- news_service.py sadece NewsAPI ile konuşur
+- Her route fonksiyonu max 15 satır
+- API key .env dosyasından gelsin, asla koda yazılmasın
+- python-dotenv ile .env yükle
+
+# Kod stili
+- PEP 8
+- Her fonksiyonda type hint zorunlu
+- Docstring: Google formatı
+- Hata yönetimi: bare except yasak, spesifik exception yakala
+- NewsAPI hatalarını kullanıcıya anlamlı mesajla göster
+
+# Test kuralları
+- pytest kullan
+- Her service fonksiyonu için unit test yaz
+- NewsAPI çağrılarını mock'la — gerçek API'ye test sırasında çağrı yapma
+- Test dosyası: tests/test_[modül].py
+
+# Onaysız yapabileceklerin
+- Refactor, type hint ekleme, docstring yazma
+- Mevcut fonksiyonlara test ekleme
+- Hata mesajlarını iyileştirme
+
+# Onay gerektiren
+- Yeni route veya endpoint ekleme
+- Yeni pip bağımlılığı
+- Veritabanı şeması değişikliği
+- .env değişkeni ekleme
+
+# Güvenlik
+- API key'i asla loglama veya response'a ekleme
+- Kullanıcı girdisini her zaman sanitize et
+- SQL injection'a karşı ORM kullan, raw SQL yazma
+
+# Yanıt formatı
+- Kod değişikliği önerirken tek cümle gerekçe yaz
+- Alternatif varsa belirt ve trade-off'ı açıkla
+- Bilmiyorsan uydurma
